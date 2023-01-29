@@ -1,0 +1,126 @@
+http://localhost/upload?a=1&b=normal
+
+GET /upload?a=1&b=normal HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux aarch64; rv:104.0) Gecko/20100101 Firefox/104.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+
+
+http://localhost
+
+GET / HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux aarch64; rv:104.0) Gecko/20100101 Firefox/104.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+
+
+POST /upload HTTP/1.1
+Host: localhost:8888
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux aarch64; rv:104.0) Gecko/20100101 Firefox/104.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: multipart/form-data; boundary=---------------------------31964986492596421951641747428
+Content-Length: 462
+Origin: http://localhost:8888
+Connection: keep-alive
+Referer: http://localhost:8888/upload.html
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+
+-----------------------------31964986492596421951641747428
+Content-Disposition: form-data; name="uploadFile"; filename="hello-world.cc"
+Content-Type: text/x-c++src
+
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+  // TODO: Change the text below to print your full name and your SEAS login name as described in the handout
+
+  printf("*** Author: Yi Chen (yichen01)\n");
+  
+  return 0;
+}
+
+-----------------------------31964986492596421951641747428--
+
+
+request raw:
+GET /download?fileName=hello.cpp HTTP/1.1
+Host: 192.168.253.129:18888
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://192.168.253.129:18888/storage
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: username=22
+
+
+
+request raw:
+GET /list_file HTTP/1.1
+Host: localhost:18888
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux aarch64; rv:104.0) Gecko/20100101 Firefox/104.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Referer: http://localhost:18888/check_login
+Cookie: username=yw
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+
+
+POST /file/createdir HTTP/1.1
+Host: localhost:18888
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux aarch64; rv:104.0) Gecko/20100101 Firefox/104.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 11
+Origin: http://localhost:18888
+Connection: keep-alive
+Referer: http://localhost:18888/list_file
+Cookie: username=yw
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+----------------------
+
+
+
+---------parse request---------:
+Method is: POST
+Path is: /file/createdir
+Version is: HTTP/1.1
+Query string is: 
+Content length is: 11
+Content body is: dirname=111
